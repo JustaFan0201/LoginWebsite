@@ -1,5 +1,5 @@
 ## Install Dependencies
-
+### 需要先安裝 Node.js
 ```bash
 cd Frontend
 npm install        # 安裝前端依賴

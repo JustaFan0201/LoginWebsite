@@ -10,6 +10,7 @@ from utils.rate_limit import limiter
 
 user_bp = Blueprint("user_router", __name__)
 
+# 註冊帳號
 @user_bp.route("/api/register", methods=["POST"])
 def register():
     try:
@@ -42,6 +43,7 @@ def register():
     finally:
         db.close()
 
+# 登入帳號
 @user_bp.route("/api/login", methods=["POST"])
 @limiter.limit("5 per 15 minute") # 限制同一 IP 15 分鐘內只能嘗試 5 次
 def login():
@@ -71,6 +73,7 @@ def login():
     finally:
         db.close()
 
+# 取得目前憑證中的登入者
 @user_bp.route("/api/me", methods=["GET"])
 def get_current_user():
     token = request.cookies.get("access_token")
@@ -86,6 +89,7 @@ def get_current_user():
     except JWTError:
         return jsonify({"detail": "憑證已過期或無效"}), 401
 
+# 登出並移除憑證
 @user_bp.route("/api/logout", methods=["POST"])
 def logout():
     response = make_response(jsonify({"message": "已成功登出"}))

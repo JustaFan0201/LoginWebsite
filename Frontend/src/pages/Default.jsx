@@ -17,7 +17,7 @@ const Default = () => {
       } catch (err) {
         console.error("驗證失敗:", err);
         alert('請先登入！');
-        navigate('/'); // 驗證失敗就趕回登入頁
+        navigate('/');
       }
     };
     checkAuth();

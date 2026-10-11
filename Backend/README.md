@@ -7,7 +7,7 @@
 ### 安裝套件
 ```bash
 cd Backend
-setup.ps1
+.\setup.ps1
 ```
 ### .env設定
 ```
