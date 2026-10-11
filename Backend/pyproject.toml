@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=65.5.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "login-website-backend"
+version = "0.1.0"
+description = "Secure login system backend"
+requires-python = ">=3.9"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "database*"]
+
+[tool.setuptools]
+py-modules = ["config"]
